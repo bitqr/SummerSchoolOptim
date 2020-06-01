@@ -18,3 +18,9 @@ class Solution:
         for i in range(self.instance.nb_items):
             result += self.x[i] * self.instance.weights[i]
         return result
+
+    def computeTotalValue(self):
+        result = 0
+        for i in range(self.instance.nb_items):
+            result += self.x[i] * self.instance.values[i]
+        return result
