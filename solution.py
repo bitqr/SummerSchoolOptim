@@ -1,5 +1,5 @@
 class Solution:
-    def __init__(self, instance: str):
+    def __init__(self, instance):
         self.instance = instance
         # Initial solution where nothing is taken in the bag
         self.x = []
