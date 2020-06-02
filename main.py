@@ -39,5 +39,14 @@ class Test(unittest.TestCase):
                 w += instance.values[i] * sol.x[i]
             self.assertEqual(sol.computeTotalValue(), w)
 
+    def test_print_instances(self):
+      inputs_array = ['test1.in', 'test2.in']
+      for instance_index in range(len(inputs_array)):
+            print(f"Test #{instance_index+1}")
+            file_name = 'testFiles/' + inputs_array[instance_index]
+            # Reading the problem from the test file
+            instance = knapSackProblem(file_name)
+            print(instance.to_string())        
+
 if __name__ == '__main__':
     unittest.main()

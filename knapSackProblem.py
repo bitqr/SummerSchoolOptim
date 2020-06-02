@@ -3,18 +3,19 @@ class knapSackProblem:
         with open(file_name, 'r') as file:
             x = file.read()
             file_split = x.splitlines()
-            self.nb_items = int(file_split[0])
+            first_line = file_split[0].split(' ')
+            self.nb_items = int(first_line[0])
+            self.capacity = int(first_line[1])
             self.weights = []
             self.values = []
-            w = file_split[1].split(' ')
-            v = file_split[2].split(' ')
-            for i in range(0, self.nb_items):
-                self.weights.append(int(w[i]))
-                self.values.append(int(v[i]))
+            for i in range(1, self.nb_items+1):
+                line = file_split[i].split(' ')
+                self.weights.append(int(line[0]))
+                self.values.append(int(line[1]))
 
     def to_string(self) -> str:
-        s = "KnapSack Problem:\n\n"
-        s += f"Nb items: {self.nb_items}\n"
+        s = f"\nNb items: {self.nb_items}\n"
+        s += f"Total capacity: {self.capacity}"
         s += "\nWeights and values:\n"
         for i in range(self.nb_items):
             s += f"w{i} = {str(self.weights[i])} / v{i} = {str(self.values[i])}\n"
