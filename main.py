@@ -2,9 +2,24 @@ import unittest
 from random import random
 from knapSackProblem import knapSackProblem
 from solution import Solution
-
+from solver import Solver
+from math import floor
 
 class Test(unittest.TestCase):
+    
+    def test_solve_fractional_KP(self):
+        inputs_array = ['test1.in', 'test2.in']
+        outputs_array = [39, 459]
+        print("\n\nCompute fractional knapSack solution test ---> ")
+        for instance_index in range(len(inputs_array)):
+            print(f"Test #{instance_index+1}")
+            file_name = 'testFiles/' + inputs_array[instance_index]
+            # Reading the problem from the test file
+            instance = knapSackProblem(file_name)
+            solver = Solver(instance)
+            sol = solver.fractionalKP()
+            self.assertEqual(floor(sol.computeTotalValue()), outputs_array[instance_index])
+
     def test_compute_total_weights(self):
         inputs_array = ['test1.in']
         print("\n\nCompute total weights test ---> ")
@@ -46,7 +61,7 @@ class Test(unittest.TestCase):
             file_name = 'testFiles/' + inputs_array[instance_index]
             # Reading the problem from the test file
             instance = knapSackProblem(file_name)
-            print(instance.to_string())        
+            print(instance.to_string())
 
 if __name__ == '__main__':
     unittest.main()
