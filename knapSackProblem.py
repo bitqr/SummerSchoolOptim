@@ -10,14 +10,14 @@ class knapSackProblem:
             self.values = []
             for i in range(1, self.nb_items+1):
                 line = file_split[i].split(' ')
-                self.weights.append(int(line[0]))
-                self.values.append(int(line[1]))
+                self.values.append(int(line[0]))
+                self.weights.append(int(line[1]))
 
     def to_string(self) -> str:
         s = f"\nNb items: {self.nb_items}\n"
         s += f"Total capacity: {self.capacity}"
         s += "\nWeights and values:\n"
         for i in range(self.nb_items):
-            s += f"w{i} = {str(self.weights[i])} / v{i} = {str(self.values[i])}\n"
+            s += f"v{i} = {str(self.values[i])} / w{i} = {str(self.weights[i])}\n"
         s += "\n"
         return s

@@ -18,11 +18,11 @@ class Solver:
       current_item_index = 0
       while current_capacity > 0:
         chosen_index = indices[current_item_index]
-        current_quantity = self.instance.weights[chosen_index]
+        quantity = self.instance.weights[chosen_index]
         proportion = 1
-        if current_quantity > current_capacity:
-          proportion = (current_quantity-current_capacity)/current_quantity
-        quantity = proportion*current_quantity
+        if quantity > current_capacity:
+          proportion = current_capacity/quantity
+          quantity = current_capacity
         solution.x[chosen_index] = proportion
         current_capacity -= quantity
         current_item_index += 1
