@@ -14,13 +14,9 @@ class Solution:
         return s
 
     def computeTotalWeight(self):
-        result = 0
-        for i in range(self.instance.nb_items):
-            result += self.x[i] * self.instance.weights[i]
-        return result
+        # TODO: Write the function
+        pass
 
     def computeTotalValue(self):
-        result = 0
-        for i in range(self.instance.nb_items):
-            result += self.x[i] * self.instance.values[i]
-        return result
+        # TODO: Write the function
+        pass
